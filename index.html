@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 23rd Birthday Suddi Menika! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #6c5ce7, #a29bfe);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .envelope-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .envelope {
+            width: 350px;
+            height: 250px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            background: linear-gradient(45deg, #f4f3f0, #e8e6e1);
+            border-radius: 15px;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotateZ(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotateZ(1deg);
+            }
+        }
+
+        .envelope-back {
+            width: 100%;
+            height: 100%;
+            background: #f9f8f6;
+            border-radius: 15px;
+            position: relative;
+            border: 2px solid #d4af37;
+            overflow: hidden;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(135deg, #ffffff, #f5f5f5);
+            border-radius: 15px 15px 0 0;
+            transform-origin: bottom;
+            transition: transform 0.8s ease;
+            z-index: 2;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .envelope-flap::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            right: 20px;
+            height: 8px;
+            background: repeating-linear-gradient(45deg,
+                    #d4af37,
+                    #d4af37 10px,
+                    transparent 10px,
+                    transparent 20px);
+            border-radius: 4px;
+        }
+
+        .envelope:hover .envelope-flap {
+            transform: rotateX(-180deg);
+        }
+
+        .envelope-content {
+            position: absolute;
+            top: 80px;
+            left: 30px;
+            right: 30px;
+            text-align: center;
+        }
+
+        .envelope-title {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            color: #d63384;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .envelope-subtitle {
+            font-size: 16px;
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .envelope-name {
+            background: #d4af37;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .wood-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(139, 69, 19, 0.1) 1px,
+                    rgba(139, 69, 19, 0.1) 2px);
+        }
+
+        .tap-text {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        .main-content {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .birthday-header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .birthday-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b9d, #ffeaa7, #74b9ff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.5));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
+            }
+        }
+
+        .age-text {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .next-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .next-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .animation-container {
+            display: none;
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .cake-scene {
+            position: relative;
+            height: 400px;
+            margin: 50px auto;
+            max-width: 600px;
+        }
+
+        .panda {
+            position: absolute;
+            font-size: 60px;
+            animation: pandaHop 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .panda-face {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 5px;
+            animation: inherit;
+        }
+
+        .panda-body {
+            width: 60px;
+            height: 70px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .bubu-panda {
+            left: 80px;
+            top: 180px;
+            animation-delay: 0s;
+        }
+
+        .bubu-panda .panda-face {
+            background: #f8f9fa;
+            border: 3px solid #333;
+        }
+
+        .bubu-panda .panda-body {
+            background: #f8f9fa;
+            border: 3px solid #333;
+        }
+
+        .dudu-panda {
+            right: 80px;
+            top: 180px;
+            animation-delay: 0.5s;
+        }
+
+        .dudu-panda .panda-face {
+            background: #d4a574;
+            border: 3px solid #8b4513;
+        }
+
+        .dudu-panda .panda-body {
+            background: #d4a574;
+            border: 3px solid #8b4513;
+        }
+
+        .panda-ear {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            top: -10px;
+        }
+
+        .panda-ear.left {
+            left: 5px;
+        }
+
+        .panda-ear.right {
+            right: 5px;
+        }
+
+        .bubu-panda .panda-ear {
+            background: #333;
+        }
+
+        .dudu-panda .panda-ear {
+            background: #8b4513;
+        }
+
+        .panda-eye {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #333;
+            border-radius: 50%;
+            top: 25px;
+        }
+
+        .panda-eye.left {
+            left: 20px;
+        }
+
+        .panda-eye.right {
+            right: 20px;
+        }
+
+        .panda-nose {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #333;
+            border-radius: 50%;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .panda-mouth {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            border: 2px solid #333;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes pandaHop {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .cake {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cake-base {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(45deg, #ffb3d1, #ff85c0);
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cake-top {
+            width: 100px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff85c0, #ff5599);
+            border-radius: 8px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cake-cherry {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: #ff1744;
+            border-radius: 50%;
+        }
+
+        .cake-decoration {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .cake-decoration:nth-child(1) {
+            top: 15px;
+            left: 15px;
+        }
+
+        .cake-decoration:nth-child(2) {
+            top: 25px;
+            right: 15px;
+        }
+
+        .cake-decoration:nth-child(3) {
+            bottom: 15px;
+            left: 25px;
+        }
+
+        .cake-decoration:nth-child(4) {
+            bottom: 20px;
+            right: 25px;
+        }
+
+        @keyframes cakeGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 85, 192, 0.5));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 85, 192, 0.8));
+            }
+        }
+
+        .candle {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 25px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 3px;
+        }
+
+        .candle-flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 15px;
+            background: radial-gradient(circle, #ff6b35, #ff8500, #ffaa00);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: candleFlicker 1.5s infinite;
+        }
+
+        @keyframes candleFlicker {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .knife {
+            position: absolute;
+            left: 45%;
+            top: 60%;
+            width: 60px;
+            height: 8px;
+            opacity: 0;
+            transform: rotate(45deg);
+        }
+
+        .knife-blade {
+            width: 45px;
+            height: 8px;
+            background: linear-gradient(45deg, #c0c0c0, #e6e6e6);
+            border-radius: 0 4px 4px 0;
+            position: relative;
+        }
+
+        .knife-handle {
+            width: 15px;
+            height: 12px;
+            background: linear-gradient(45deg, #8b4513, #d2691e);
+            border-radius: 4px 0 0 4px;
+            position: absolute;
+            left: -15px;
+            top: -2px;
+        }
+
+        .cake-cutting {
+            animation: cakeCut 3s ease-in-out;
+        }
+
+        @keyframes cakeCut {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px) rotate(45deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(0) rotate(45deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(20px) rotate(45deg);
+            }
+        }
+
+        .birthday-wish {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 150px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .wish-text {
+            margin-left: 450px;
+            width: 500px;
+            font-size: 1.5rem;
+            font-family: 'Georgia', serif;
+            color: #000000;
+            line-height: 1.6;
+            text-align: center;
+
+            /* Colorful box background */
+            background: linear-gradient(135deg, #ff6b9d, #ffeaa7, #74b9ff, #a29bfe);
+            padding: 20px;
+            border-radius: 20px;
+
+            /* Nice shadow */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+        .photo-heart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .heart-shape {
+            position: relative;
+            margin: 20px;
+        }
+
+        .heart-shape::before,
+        .heart-shape::after {
+            content: '';
+            width: 26px;
+            height: 40px;
+            position: absolute;
+            left: 25px;
+            transform: rotate(-45deg);
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border-radius: 25px 25px 0 0;
+            transform-origin: 0 100%;
+        }
+
+        .heart-shape::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .heart-photo {
+            position: relative;
+            z-index: 1;
+            width: 50px;
+            height: 45px;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #333;
+            animation: heartBeat 2s infinite;
+        }
+
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ffd700;
+            font-size: 20px;
+            animation: sparkle 3s infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+        }
+
+        /* Small phone screens (≈360px width) */
+        @media (max-width: 400px) {
+            .birthday-title {
+                font-size: 1.8rem;
+            }
+
+            .age-text {
+                font-size: 1rem;
+            }
+
+            .wish-text {
+                font-size: 1.4rem;
+                line-height: 1.4;
+            }
+
+            .cake-scene {
+                height: 250px;
+            }
+
+            .panda {
+                transform: scale(0.7);
+            }
+
+            .cake {
+                transform: scale(0.7) translate(-50%, -50%);
+            }
+
+            .next-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sparkles" id="sparkles"></div>
+
+    <!-- Envelope Screen -->
+    <div class="envelope-container" id="envelope-container">
+        <div class="envelope">
+            <div class="envelope-back">
+                <div class="wood-texture"></div>
+                <div class="envelope-content">
+                    <div class="envelope-title">Open</div>
+                    <div class="envelope-subtitle">This</div>
+                    <p style="font-size: 12px; color: #666; margin: 15px 0; line-height: 1.4;">
+                        To:
+
+                    </p>
+                    <div class="envelope-name">Doni</div>
+                </div>
+                <div class="envelope-flap"></div>
+            </div>
+            <div class="tap-text">Tap to Open! 💕</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <div class="birthday-header">
+            <h1 class="birthday-title">Happy Birthday Suddi menika! 🎂</h1>
+            <p class="age-text">Celebrating 23 Beautiful Years! ✨</p>
+            <button class="next-button" onclick="startAnimation()">Let's Celebrate! 🎉</button>
+        </div>
+
+        <div class="animation-container" id="animation-container">
+            <h2 style="color: white; font-size: 2rem; margin-bottom: 30px;">මගේ චූටි දෝණිගේ 23 වෙනි උපන්දිනය වෙනුවෙන්
+                ආදරෙන්...! 🐼</h2>
+            <div class="cake-scene">
+                <div class="panda bubu-panda">
+                    <div class="panda-face">
+                        <div class="panda-ear left"></div>
+                        <div class="panda-ear right"></div>
+                        <div class="panda-eye left"></div>
+                        <div class="panda-eye right"></div>
+                        <div class="panda-nose"></div>
+                        <div class="panda-mouth"></div>
+                    </div>
+                    <div class="panda-body"></div>
+                </div>
+                <div class="panda dudu-panda">
+                    <div class="panda-face">
+                        <div class="panda-ear left"></div>
+                        <div class="panda-ear right"></div>
+                        <div class="panda-eye left"></div>
+                        <div class="panda-eye right"></div>
+                        <div class="panda-nose"></div>
+                        <div class="panda-mouth"></div>
+                    </div>
+                    <div class="panda-body"></div>
+                </div>
+                <div class="cake">
+                    <div class="cake-base">
+                        <div class="cake-top">
+                            <div class="cake-decoration"></div>
+                            <div class="cake-decoration"></div>
+                            <div class="cake-decoration"></div>
+                            <div class="cake-decoration"></div>
+                        </div>
+                        <div class="cake-cherry"></div>
+                        <div class="candle">
+                            <div class="candle-flame"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="knife" id="knife">
+                    <div class="knife-blade"></div>
+                    <div class="knife-handle"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="birthday-wish">
+            <p class="wish-text">
+                🎉💖 Wish you a verry Happy Birth Day mage menika! 🌸<br>
+                may your life be filled with endless love, joy, health, and success.
+                May all your dreams come true and every moment bring you happiness! 🌸✨
+
+                You deserve all the love, true friendship, and a life full of smiles. 🎂🎁🎶
+            </p>
+        </div>
+
+        <div class="photo-heart" id="photo-heart">
+            <!-- Heart-shaped photo placeholders will be generated here -->
+        </div>
+
+        <div class="footer">
+            💕 Dulara_Abhishek celebrates Priya's Birthday 💕<br>
+            <small style="font-size: 1rem; opacity: 0.8;">September 25th, 2025 • With Love</small>
+        </div>
+    </div>
+
+    <script>
+        // Create sparkles effect
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.innerHTML = '✨';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        // Open envelope
+        document.getElementById('envelope-container').addEventListener('click', function () {
+            this.style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            createSparkles();
+        });
+
+        // Generate heart-shaped photo placeholders
+        function generateHeartPhotos() {
+            const container = document.getElementById('photo-heart');
+            for (let i = 1; i <= 15; i++) {
+                const heartDiv = document.createElement('div');
+                heartDiv.className = 'heart-shape';
+                heartDiv.innerHTML = `<div class="heart-photo">image(${i})</div>`;
+                container.appendChild(heartDiv);
+            }
+        }
+
+        // Start panda cake animation with music
+        function startAnimation() {
+            document.getElementById('animation-container').style.display = 'block';
+            document.querySelector('.birthday-header').style.display = 'none';
+
+            // Play Happy Birthday music
+            playBirthdayMusic();
+
+            // Play birthday song simulation (visual feedback)
+            setTimeout(() => {
+                // Blow out candle effect
+                const candleFlame = document.querySelector('.candle-flame');
+                candleFlame.style.animation = 'candleBlowOut 2s ease-out';
+                candleFlame.style.animationFillMode = 'forwards';
+
+                // Show knife and cutting animation
+                setTimeout(() => {
+                    const knife = document.getElementById('knife');
+                    knife.style.opacity = '1';
+                    knife.classList.add('cake-cutting');
+
+                    // Animate pandas towards cake
+                    const bubuPanda = document.querySelector('.bubu-panda');
+                    const duduPanda = document.querySelector('.dudu-panda');
+                    bubuPanda.style.animation = 'pandaMoveTowardsCake 3s ease-in-out';
+                    duduPanda.style.animation = 'pandaMoveTowardsCake 3s ease-in-out';
+
+                    // Show success message
+                    setTimeout(() => {
+                        const scene = document.querySelector('.cake-scene');
+                        const successMsg = document.createElement('div');
+                        successMsg.style.cssText = `
+                            position: absolute;
+                            top: 100%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            color: white;
+                            font-size: 15px;
+                            text-align: center;
+                            background: rgba(255, 107, 157, 0.8);
+                            padding: 15px 30px;
+                            border-radius: 20px;
+                            margin-top: 20px;
+                            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                        `;
+                        successMsg.innerHTML = '🎉 ඔන්න දැං සුදුමහත්තයා චූටි දෝණිට කේක් කෑල්ලක් කැව්වා !! 🍰<br>Happy Birthday මගේ මැණික! 💕';
+                        scene.appendChild(successMsg);
+
+                        // Generate heart photos
+                        generateHeartPhotos();
+                    }, 3000);
+                }, 3000);
+            }, 2000);
+        }
+
+        // Play Birthday Music function
+        function playBirthdayMusic() {
+            // Create audio context for birthday song
+            try {
+                // Try to load the provided MP3 file
+                const audio = new Audio('happybirthday.mp3');
+                audio.volume = 0.7;
+                audio.play().catch(e => {
+                    console.log('Could not play MP3 file, using Web Audio API instead');
+                    playBirthdaySongWithWebAudio();
+                });
+            } catch (e) {
+                console.log('MP3 not found, using Web Audio API');
+                playBirthdaySongWithWebAudio();
+            }
+        }
+
+        // Fallback: Create birthday melody using Web Audio API
+        function playBirthdaySongWithWebAudio() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const notes = [
+                { freq: 262, duration: 0.5 }, // C - Hap
+                { freq: 262, duration: 0.5 }, // C - py
+                { freq: 294, duration: 1 },   // D - Birth
+                { freq: 262, duration: 1 },   // C - day
+                { freq: 349, duration: 1 },   // F - to
+                { freq: 330, duration: 2 },   // E - you
+
+                { freq: 262, duration: 0.5 }, // C - Hap
+                { freq: 262, duration: 0.5 }, // C - py
+                { freq: 294, duration: 1 },   // D - Birth
+                { freq: 262, duration: 1 },   // C - day
+                { freq: 392, duration: 1 },   // G - to
+                { freq: 349, duration: 2 },   // F - you
+            ];
+
+            let startTime = audioContext.currentTime;
+
+            notes.forEach((note, index) => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.value = note.freq;
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(0, startTime);
+                gainNode.gain.linearRampToValueAtTime(0.3, startTime + 0.1);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + note.duration);
+
+                oscillator.start(startTime);
+                oscillator.stop(startTime + note.duration);
+
+                startTime += note.duration;
+            });
+        }
+
+        // Add CSS for candle blow out and panda movement
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes candleBlowOut {
+                0% { opacity: 1; transform: translateX(-50%) scale(1); }
+                100% { opacity: 0; transform: translateX(-50%) scale(0.3); }
+            }
+            
+            @keyframes pandaMoveTowardsCake {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px) scale(1.1); }
+                100% { transform: translateY(0px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize sparkles on page load
+        window.addEventListener('load', function () {
+            // Add some initial sparkles even before opening envelope
+            setTimeout(createSparkles, 1000);
+        });
+    </script>
+</body>
+
+</html>
