@@ -957,7 +957,7 @@
             for (let i = 1; i <= 15; i++) {
                 const heartDiv = document.createElement('div');
                 heartDiv.className = 'heart-shape';
-                heartDiv.innerHTML = `<div class="heart-photo">image(${i})</div>`;
+                heartDiv.innerHTML = `<div class="heart-photo"><img src="image(${i}).jpg" alt="Memory ${i}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" onerror="this.parentElement.innerHTML='Photo ${i}';"></div>`;
                 container.appendChild(heartDiv);
             }
         }
